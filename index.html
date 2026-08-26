@@ -16,25 +16,51 @@
     body {
       margin: 0;
       min-height: 100vh;
+
       background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.9), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(255,210,225,0.6), transparent 30%),
-        linear-gradient(135deg, #fff7f9, #f8f1ff);
-      color: #332c35;
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(255,255,255,0.9),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(255,210,160,0.55),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #fff8ed,
+          #fff0dc
+        );
+
+      color: #3d3028;
       font-family: "DM Sans", sans-serif;
+
       display: flex;
       justify-content: center;
       align-items: center;
+
       padding: 25px;
+
       overflow-x: hidden;
     }
 
+
+    /* Floating hearts */
+
     .heart {
       position: fixed;
-      color: rgba(221, 126, 159, 0.18);
+
+      color: rgba(213, 132, 66, 0.18);
+
       font-size: 25px;
-      animation: float 8s infinite ease-in-out;
+
+      animation:
+        float 8s infinite ease-in-out;
+
       pointer-events: none;
+
       z-index: 0;
     }
 
@@ -62,296 +88,605 @@
       animation-delay: 1s;
     }
 
+
     @keyframes float {
       0%, 100% {
-        transform: translateY(0) rotate(0deg);
+        transform:
+          translateY(0)
+          rotate(0deg);
       }
 
       50% {
-        transform: translateY(-25px) rotate(8deg);
+        transform:
+          translateY(-25px)
+          rotate(8deg);
       }
     }
 
+
     .container {
       position: relative;
+
       z-index: 1;
+
       width: 100%;
+
       max-width: 720px;
+
       text-align: center;
     }
+
+
+    /* Logo */
+
+    .logo-wrapper {
+      width: 180px;
+
+      height: 105px;
+
+      margin: 0 auto 8px;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      overflow: hidden;
+
+      border-radius: 20px;
+    }
+
+
+    .logo {
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: contain;
+
+      /*
+        Your uploaded drawing has a white background.
+        Multiply makes the white blend nicely
+        with the orange page.
+      */
+
+      mix-blend-mode: multiply;
+
+      filter:
+        contrast(1.08)
+        brightness(0.98);
+    }
+
+
+    /* Introduction */
 
     .intro {
       margin-bottom: 28px;
     }
 
+
     .small-title {
       font-size: 13px;
+
       letter-spacing: 4px;
+
       text-transform: uppercase;
-      color: #b56a88;
+
+      color: #c47a32;
+
       font-weight: 700;
+
       margin-bottom: 12px;
     }
 
+
     h1 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(40px, 8vw, 70px);
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(40px, 8vw, 70px);
+
       line-height: 1;
+
       margin: 0;
-      color: #392d3a;
+
+      color: #3d2d24;
     }
+
 
     .subtitle {
       margin-top: 18px;
-      color: #776c76;
+
+      color: #806f62;
+
       font-size: 16px;
     }
 
+
+    /* Main card */
+
     .card {
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255,255,255,0.8);
+      background:
+        rgba(255, 252, 247, 0.82);
+
+      backdrop-filter:
+        blur(15px);
+
+      -webkit-backdrop-filter:
+        blur(15px);
+
+      border:
+        1px solid rgba(255,255,255,0.9);
+
       border-radius: 28px;
+
       padding: 35px;
+
       box-shadow:
-        0 20px 60px rgba(82, 50, 72, 0.12),
-        0 4px 15px rgba(82, 50, 72, 0.05);
+        0 20px 60px
+        rgba(110, 68, 30, 0.13),
+
+        0 4px 15px
+        rgba(110, 68, 30, 0.06);
     }
+
 
     label {
       display: block;
+
       font-size: 14px;
+
       font-weight: 700;
-      color: #665b65;
+
+      color: #65554a;
+
       margin-bottom: 10px;
+
       text-align: left;
     }
+
+
+    /* Dropdown */
 
     select {
       width: 100%;
+
       padding: 16px 18px;
-      border: 2px solid #eadce3;
+
+      border:
+        2px solid #ecd9c2;
+
       border-radius: 15px;
-      background: #fff;
-      color: #3c333b;
+
+      background: #fffdfa;
+
+      color: #40352f;
+
       font-family: inherit;
+
       font-size: 16px;
+
       outline: none;
+
       cursor: pointer;
+
       transition: 0.25s ease;
+
       appearance: auto;
     }
 
+
     select:focus {
-      border-color: #d88ba8;
-      box-shadow: 0 0 0 4px rgba(216,139,168,0.12);
+      border-color: #dc974f;
+
+      box-shadow:
+        0 0 0 4px
+        rgba(220,151,79,0.13);
     }
+
+
+    /* Main button */
 
     button {
       width: 100%;
+
       margin-top: 14px;
+
       padding: 16px;
+
       border: none;
+
       border-radius: 15px;
-      background: linear-gradient(135deg, #d7799d, #b86b91);
+
+      background:
+        linear-gradient(
+          135deg,
+          #e3a15c,
+          #d4873d
+        );
+
       color: white;
+
       font-family: inherit;
+
       font-size: 16px;
+
       font-weight: 700;
+
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(184,107,145,0.25);
+
+      box-shadow:
+        0 8px 20px
+        rgba(190,116,49,0.25);
+
       transition: 0.25s ease;
     }
 
+
     button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(184,107,145,0.3);
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 12px 25px
+        rgba(190,116,49,0.30);
     }
 
+
     button:active {
-      transform: translateY(0);
+      transform:
+        translateY(0);
     }
+
+
+    /* Message box */
 
     #messageBox {
       display: none;
+
       margin-top: 25px;
+
       text-align: left;
-      animation: reveal 0.7s ease forwards;
+
+      animation:
+        reveal 0.7s ease forwards;
     }
 
+
     @keyframes reveal {
+
       from {
         opacity: 0;
-        transform: translateY(20px);
+
+        transform:
+          translateY(20px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+          translateY(0);
       }
+
     }
 
+
     .message-card {
-      background: #fff;
+      background: #fffdfa;
+
       border-radius: 22px;
+
       padding: 30px;
-      border: 1px solid #f0e2e8;
+
+      border:
+        1px solid #efdfcd;
+
       position: relative;
+
       overflow: hidden;
     }
 
+
     .message-card::before {
       content: "“";
+
       position: absolute;
+
       top: -25px;
+
       left: 12px;
-      font-family: Georgia, serif;
+
+      font-family:
+        Georgia, serif;
+
       font-size: 130px;
-      color: rgba(216,139,168,0.1);
+
+      color:
+        rgba(216,139,80,0.10);
+
       line-height: 1;
     }
 
+
     .message-to {
       position: relative;
-      font-family: "Playfair Display", serif;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
       font-size: 28px;
-      color: #a9577d;
+
+      color: #c47535;
+
       margin-bottom: 20px;
     }
 
+
     .message-text {
       position: relative;
+
       font-size: 16px;
+
       line-height: 1.8;
-      color: #514750;
+
+      color: #51463e;
+
       white-space: pre-line;
     }
 
+
+    /* Reset button */
+
     .reset {
       background: transparent;
-      color: #a9577d;
+
+      color: #c47535;
+
       box-shadow: none;
-      border: 1px solid #e8ccd9;
+
+      border:
+        1px solid #e8c9a8;
+
       margin-top: 15px;
     }
 
+
     .reset:hover {
-      background: #fff5f8;
+      background:
+        #fff8ee;
+
       box-shadow: none;
     }
 
+
+    /* Footer */
+
     .footer {
       margin-top: 20px;
+
       font-size: 12px;
-      color: #a89da5;
+
+      color: #a39182;
     }
+
+
+    /* Confetti */
 
     .confetti {
       position: fixed;
+
       width: 8px;
+
       height: 12px;
+
       top: -20px;
+
       z-index: 10;
-      animation: confettiFall 3s linear forwards;
+
+      animation:
+        confettiFall 3s linear forwards;
+
       pointer-events: none;
     }
 
+
     @keyframes confettiFall {
+
       to {
-        transform: translateY(110vh) rotate(720deg);
+        transform:
+          translateY(110vh)
+          rotate(720deg);
+
         opacity: 0;
       }
+
     }
 
+
+    /* Mobile */
+
     @media (max-width: 600px) {
+
       body {
         padding: 16px;
       }
 
+
+      .logo-wrapper {
+        width: 150px;
+
+        height: 90px;
+      }
+
+
       .card {
         padding: 23px;
+
         border-radius: 22px;
       }
+
 
       .message-card {
         padding: 23px;
       }
 
+
       .message-to {
         font-size: 25px;
       }
 
+
       .message-text {
         font-size: 15px;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
+
+  <!-- Floating decorations -->
+
   <div class="heart">♡</div>
+
   <div class="heart">♥</div>
+
   <div class="heart">♡</div>
+
   <div class="heart">♥</div>
+
 
   <main class="container">
 
-    <section class="intro">
-      <div class="small-title">A little something</div>
 
-      <h1>For You 💌</h1>
+    <!-- Your logo -->
+
+    <div class="logo-wrapper">
+
+      <img
+        src="logo.png"
+        alt="Farewell logo"
+        class="logo"
+      >
+
+    </div>
+
+
+    <!-- Introduction -->
+
+    <section class="intro">
+
+      <div class="small-title">
+        A little something
+      </div>
+
+
+      <h1>
+        For You 💌
+      </h1>
+
 
       <div class="subtitle">
         Dont la so curious, choose only yourself ah!.
       </div>
+
     </section>
 
 
+    <!-- Main card -->
+
     <section class="card">
+
 
       <label for="nameSelect">
         Choose your name
       </label>
 
+
       <select id="nameSelect">
-        <option value="">— Select your name —</option>
+
+        <option value="">
+          — Select your name —
+        </option>
+
 
         <option value="Jin">Jin</option>
+
         <option value="Ayna">Ayna</option>
+
         <option value="James">James</option>
+
         <option value="Alicia">Alicia</option>
+
         <option value="Jane">Jane</option>
+
         <option value="Jing An">Jing An</option>
+
         <option value="Shawn">Shawn</option>
+
         <option value="Aman">Aman</option>
+
         <option value="Irene">Irene</option>
+
         <option value="Kelly">Kelly</option>
+
         <option value="Roshafiq">Roshafiq</option>
+
         <option value="Puteri">Puteri</option>
+
         <option value="Ameiraah">Ameiraah</option>
+
         <option value="Daniu">Daniu</option>
+
         <option value="Yuki">Yuki</option>
+
         <option value="Kawai">Kawai</option>
+
         <option value="Johnny">Johnny</option>
+
         <option value="Sarah">Sarah</option>
+
         <option value="Rhyanne">Rhyanne</option>
+
         <option value="Tom">Tom</option>
+
         <option value="Timmy">Timmy</option>
+
         <option value="Johanna">Johanna</option>
+
         <option value="Riri">Riri</option>
+
         <option value="Fikri">Fikri</option>
+
         <option value="Izzati">Izzati</option>
+
         <option value="Revan">Revan</option>
+
         <option value="Richard">Richard</option>
+
         <option value="Aiman">Aiman</option>
+
         <option value="Adam">Adam</option>
+
         <option value="Raziq">Raziq</option>
+
         <option value="Syahiran">Syahiran</option>
+
         <option value="Naim">Naim</option>
+
         <option value="Bree">Bree</option>
+
         <option value="Daniel">Daniel</option>
+
         <option value="Alister">Alister</option>
 
       </select>
@@ -362,22 +697,40 @@
       </button>
 
 
+      <!-- Message -->
+
       <div id="messageBox">
+
 
         <div class="message-card">
 
-          <div class="message-to" id="messageName"></div>
 
-          <div class="message-text" id="messageText"></div>
+          <div
+            class="message-to"
+            id="messageName">
+          </div>
+
+
+          <div
+            class="message-text"
+            id="messageText">
+          </div>
+
 
         </div>
 
 
-        <button class="reset" onclick="resetMessage()">
+        <button
+          class="reset"
+          onclick="resetMessage()">
+
           Choose another name
+
         </button>
 
+
       </div>
+
 
     </section>
 
@@ -386,115 +739,202 @@
       Made with memories & a little bit of chaos ♡
     </div>
 
+
   </main>
 
 
   <script>
 
+
     const messages = {
 
-      "Jin": `Hello Jin! Just wanna say you and the tech team superman, the best one I've met. There are times when tech fixes look impossible, but you took the patience to fix it; EVENTHRU LATE NIGHTS. Thankkk you :D`,
 
-      "Ayna": `Harlo Ayna, didn't managed to work with you but you've been very VERY easy to work with. Enjoy your time here at HQ!`,
+      "Jin":
+      `Hello Jin! Just wanna say you and the tech team superman, the best one I've met. There are times when tech fixes look impossible, but you took the patience to fix it; EVENTHRU LATE NIGHTS. Thankkk you :D`,
 
-      "James": `The biggest regret between us is I SHOULD HAVE ADDED YOU ON STEAM EARLIER. Hell of a dota player. See you on the virtual world, always.`,
 
-      "Alicia": `Hiii. For the longest time, I ACTUALLY THOUGHT YOU KNEW MANDARIN. Bruhh, how dumb & SORRY for thinking so. Jia you!`,
+      "Ayna":
+      `Harlo Ayna, didn't managed to work with you but you've been very VERY easy to work with. Enjoy your time here at HQ!`,
 
-      "Jane": `Hi Jane! Enjoy your time here as an intern! Didnt get to work with ya but you ice cool!`,
 
-      "Jing An": `Ayyy, people hate you and love you even more for your hard-ass puzzles!Thanks for the New York trip! I hope the food choices were good & enjoyable!`,
+      "James":
+      `The biggest regret between us is I SHOULD HAVE ADDED YOU ON STEAM EARLIER. Hell of a dota player. See you on the virtual world, always.`,
 
-      "Shawn": `We first talked during Langkawi & you were sooo nice! We old back but young spirited gotta support each other. IM JK, take good care!`,
 
-      "Aman": `Hi Aman, you are the most most most chill and nice guy to be around with. Good luck with the future ahead! & also "Got invitation ah?" Jk Jk`,
+      "Alicia":
+      `Hiii. For the longest time, I ACTUALLY THOUGHT YOU KNEW MANDARIN. Bruhh, how dumb & SORRY for thinking so. Jia you!`,
 
-      "Irene": `Hi Irene, I really enjoyed the small talks that we have and the lessons learnt along the way. I did not feel the age gap at all when we talked, I wish ya the bestest good health! Hope you can achieve the dream of travelling even more.`,
 
-      "Kelly": `Hi Kelly, congrats on the new born! Ariya got new sister liao. Huat huat for the company ah!`,
+      "Jane":
+      `Hi Jane! Enjoy your time here as an intern! Didnt get to work with ya but you ice cool!`,
 
-      "Roshafiq": `Your creative skills are amazing. Hands down the best I've seen. Sony project was enjoyable and I would definitely pay to enter. Wish it lasted longer :)`,
 
-      "Puteri": `You go girl! Chase that man, I mean dream. Project manager yang reliable susah nak cari, See ya when I see ya!`,
+      "Jing An":
+      `Ayyy, people hate you and love you even more for your hard-ass puzzles!Thanks for the New York trip! I hope the food choices were good & enjoyable!`,
 
-      "Ameiraah": `How the game had changed huh? Dulu you start, I am here. Skrg I pegi, you stay hahaha. Thanks for entertaining my long explanations and hope that I didn't cause too much troubles. You da better HR :)`,
 
-      "Daniu": `Halo Boss! Thanks for ze quick works & wish your journey forward to be smooth smooth! Sorry if I ever kacau you a lot, but then you also finish the job quick. THANK YOU!`,
+      "Shawn":
+      `We first talked during Langkawi & you were sooo nice! We old back but young spirited gotta support each other. IM JK, take good care!`,
 
-      "Yuki": `Hi Yuki, I wish all the very best with you & Edgar. Thanks for the patience & guidance offered during my 5 years here. You made me to think "Hey, being in operations is kinda fun!" Its kinda sad to leave, but I hope everyone in Ops are capable & independent in the future. Thats the reward for having relaxing OFFDAYS. Thanks again for always being there & supportive. I hope Adam stays strong as the new AM. Bitter & happy memories la hor :)`,
 
-      "Kawai": `Hi Kawai! I always wonder if I would ever fit into your team, seems like very fun tbh! Thanks for taking the time to understand on why I left, that curiousity marks you as one of the leaders I admire. Good luck on your journey ahead!`,
+      "Aman":
+      `Hi Aman, you are the most most most chill and nice guy to be around with. Good luck with the future ahead! & also "Got invitation ah?" Jk Jk`,
 
-      "Johnny": `Hi Johnny, Sorry I didn't silent my phone during the nights @ Canada. Congrats on the new born & I wish the very best for Superdough! The future for outdoor theme park will come true 1 day!`,
 
-      "Sarah": `Girl, you cool. I already say what I said but man, I wish to work with you more. Terima kasih & your side-eyes are freaking scary. You got dis!`,
+      "Irene":
+      `Hi Irene, I really enjoyed the small talks that we have and the lessons learnt along the way. I did not feel the age gap at all when we talked, I wish ya the bestest good health! Hope you can achieve the dream of travelling even more.`,
 
-      "Rhyanne": `Haloo Rhyanne, monthly graphic request are the only things we worked on. But you go girl! When you shared with us you collect carcasses, I legit freaked out inside. Thats kinda cool, but also kinda scawyy.`,
 
-      "Tom": `Tom, Toom, Tom the cat! You are one caring fella. Keep believing in your core values that you bring because its working! 1 day people are gonna see that light & you are gonna dash forward in life! I geh ren tee! Anyways, see ya when I see ya? Dinner mou? & Also MELAKA TRIP WHEN?`,
+      "Kelly":
+      `Hi Kelly, congrats on the new born! Ariya got new sister liao. Huat huat for the company ah!`,
 
-      "Timmy": `Cool guy.. Yep, dats it. Hehe, I'm kidding. You da fella who take true pride in your whatever things you do, you just wanna get shit done. See you in the next conventions! & Ping me la when got next set for "special fren" price.`,
 
-      "Johanna": `Hi Jo! My core memory together was legit that MACHO moment to PRY open that Section 13 door back in Shore. Keep doing what your doing & congrats in the future? Uhuehue`,
+      "Roshafiq":
+      `Your creative skills are amazing. Hands down the best I've seen. Sony project was enjoyable and I would definitely pay to enter. Wish it lasted longer :)`,
 
-      "Riri": `Heyyyy, Hit me up if you wanna go cafes together or smtg! You cool!`,
 
-      "Fikri": `My twin brother & Luigi, from GM to now marketing.. You've just started decorating your table, continue laa. Gambateh ser!`,
+      "Puteri":
+      `You go girl! Chase that man, I mean dream. Project manager yang reliable susah nak cari, See ya when I see ya!`,
 
-      "Izzati": `Intern's tough right? You gotta enjoy work man, its fun! You're the Cola girl from now on, stay safe coz too sweet oredi, you & also your blood.`,
 
-      "Revan": `I will also help you find LEON. I will call you jika dapat OKEI. Thanks for layan-ing me & I wish you full happiness after working hours :)`,
+      "Ameiraah":
+      `How the game had changed huh? Dulu you start, I am here. Skrg I pegi, you stay hahaha. Thanks for entertaining my long explanations and hope that I didn't cause too much troubles. You da better HR :)`,
 
-      "Richard": `Hi Richard, thanks for the patience & guidance. The silent teamwork we had was incomparable but then Aiman had to enter the picture, IM JOKING but slightly jealous. Haha, take care Richard & jia you in your theatre career!`,
 
-      "Aiman": `My AM partner, I will miss ya. Next time I go Bonda I'll order the Aiman special Hahaha. Take care & always stay healthy! We'll meet again :)`,
+      "Daniu":
+      `Halo Boss! Thanks for ze quick works & wish your journey forward to be smooth smooth! Sorry if I ever kacau you a lot, but then you also finish the job quick. THANK YOU!`,
 
-      "Adam": `Brooo, I hope your journey ahead smooth smooth la k. No need wish you da best all, I do wanna apologize if I were ever unintentionally rude to you when you ask me for opinions. You got this!!`,
 
-      "Raziq": `If I worked with you more often, it will definitely be fun tho! Seeing you from ASV to SV skrg, Fuhh this guy confirm got potential! Good luck Raziq!`,
+      "Yuki":
+      `Hi Yuki, I wish all the very best with you & Edgar. Thanks for the patience & guidance offered during my 5 years here. You made me to think "Hey, being in operations is kinda fun!" Its kinda sad to leave, but I hope everyone in Ops are capable & independent in the future. Thats the reward for having relaxing OFFDAYS. Thanks again for always being there & supportive. I hope Adam stays strong as the new AM. Bitter & happy memories la hor :)`,
 
-      "Syahiran": `Damn, ASV outlet that I dont take care of. You are very supportive to Raziq & with great reason! Good luck with your journey ahead!`,
 
-      "Naim": `12 years apart & I struggling to keep up, hahaha. You asked before if you can become "XX" 1 day, I lied. Of course you can! Ride bike please be careful ah!`,
+      "Kawai":
+      `Hi Kawai! I always wonder if I would ever fit into your team, seems like very fun tbh! Thanks for taking the time to understand on why I left, that curiousity marks you as one of the leaders I admire. Good luck on your journey ahead!`,
 
-      "Bree": `Ayyy, life gotten move on right. We cherish the happiness with the moments we've made along the way, & whats left is a photo as memories. Stay strong Bree! You got very very good charisma :D`,
 
-      "Daniel": `From PT to FT to ASV to SV. Who knows what u gonna become? From Gemuk to Fit? The life curve memang haywire already. Thanks for letting me know that I was too hard on you, it made me reflect. Sometimes the hardest thing to say/do will bring the best results, jia you my melaka buddy.`,
+      "Johnny":
+      `Hi Johnny, Sorry I didn't silent my phone during the nights @ Canada. Congrats on the new born & I wish the very best for Superdough! The future for outdoor theme park will come true 1 day!`,
 
-      "Alister": `Git Gud. Love you too. I come visit you sometime k? :)`
+
+      "Sarah":
+      `Girl, you cool. I already say what I said but man, I wish to work with you more. Terima kasih & your side-eyes are freaking scary. You got dis!`,
+
+
+      "Rhyanne":
+      `Haloo Rhyanne, monthly graphic request are the only things we worked on. But you go girl! When you shared with us you collect carcasses, I legit freaked out inside. Thats kinda cool, but also kinda scawyy.`,
+
+
+      "Tom":
+      `Tom, Toom, Tom the cat! You are one caring fella. Keep believing in your core values that you bring because its working! 1 day people are gonna see that light & you are gonna dash forward in life! I geh ren tee! Anyways, see ya when ya see ya? Dinner mou? & Also MELAKA TRIP WHEN?`,
+
+
+      "Timmy":
+      `Cool guy.. Yep, dats it. Hehe, I'm kidding. You da fella who take true pride in your whatever things you do, you just wanna get shit done. See you in the next conventions! & Ping me la when got next set for "special fren" price.`,
+
+
+      "Johanna":
+      `Hi Jo! My core memory together was legit that MACHO moment to PRY open that Section 13 door back in Shore. Keep doing what your doing & congrats in the future? Uhuehue`,
+
+
+      "Riri":
+      `Heyyyy, Hit me up if you wanna go cafes together or smtg! You cool!`,
+
+
+      "Fikri":
+      `My twin brother & Luigi, from GM to now marketing.. You've just started decorating your table, continue laa. Gambateh ser!`,
+
+
+      "Izzati":
+      `Intern's tough right? You gotta enjoy work man, its fun! You're the Cola girl from now on, stay safe coz too sweet oredi, you & also your blood.`,
+
+
+      "Revan":
+      `I will also help you find LEON. I will call you jika dapat OKEI. Thanks for layan-ing me & I wish you full happiness after working hours :)`,
+
+
+      "Richard":
+      `Hi Richard, thanks for the patience & guidance. The silent teamwork we had was incomparable but then Aiman had to enter the picture, IM JOKING but slightly jealous. Haha, take care Richard & jia you in your theatre career!`,
+
+
+      "Aiman":
+      `My AM partner, I will miss ya. Next time I go Bonda I'll order the Aiman special Hahaha. Take care & always stay healthy! We'll meet again :)`,
+
+
+      "Adam":
+      `Brooo, I hope your journey ahead smooth smooth la k. No need wish you da best all, I do wanna apologize if I were ever unintentionally rude to you when you ask me for opinions. You got this!!`,
+
+
+      "Raziq":
+      `If I worked with you more often, it will definitely be fun tho! Seeing you from ASV to SV skrg, Fuhh this guy confirm got potential! Good luck Raziq!`,
+
+
+      "Syahiran":
+      `Damn, ASV outlet that I dont take care of. You are very supportive to Raziq & with great reason! Good luck with your journey ahead!`,
+
+
+      "Naim":
+      `12 years apart & I struggling to keep up, hahaha. You asked before if you can become "XX" 1 day, I lied. Of course you can! Ride bike please be careful ah!`,
+
+
+      "Bree":
+      `Ayyy, life gotten move on right. We cherish the happiness with the moments we've made along the way, & whats left is a photo as memories. Stay strong Bree! You got very very good charisma :D`,
+
+
+      "Daniel":
+      `From PT to FT to ASV to SV. Who knows what u gonna become? From Gemuk to Fit? The life curve memang haywire already. Thanks for letting me know that I was too hard on you, it made me reflect. Sometimes the hardest thing to say/do will bring the best results, jia you my melaka buddy.`,
+
+
+      "Alister":
+      `Git Gud. Love you too. I come visit you sometime k? :)`
 
     };
 
 
     function showMessage() {
 
+
       const selectedName =
         document.getElementById("nameSelect").value;
+
 
       if (!selectedName) {
 
         alert("Choose your name first! 😭");
 
         return;
+
       }
+
 
       document.getElementById("messageName").textContent =
         `Dear ${selectedName},`;
 
+
       document.getElementById("messageText").textContent =
         messages[selectedName];
+
 
       document.getElementById("messageBox").style.display =
         "block";
 
+
       createConfetti();
+
 
       setTimeout(() => {
 
-        document.getElementById("messageBox").scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
+
+        document
+          .getElementById("messageBox")
+          .scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "center"
+
+          });
+
 
       }, 100);
 
@@ -503,14 +943,21 @@
 
     function resetMessage() {
 
+
       document.getElementById("messageBox").style.display =
         "none";
 
-      document.getElementById("nameSelect").value = "";
+
+      document.getElementById("nameSelect").value =
+        "";
+
 
       window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
       });
 
     }
@@ -518,37 +965,57 @@
 
     function createConfetti() {
 
+
       const colors = [
-        "#d7799d",
-        "#e9a8bd",
-        "#b88ac7",
-        "#f2c66d",
-        "#8fc7c2",
-        "#d89bb4"
+
+        "#e3a15c",
+
+        "#d4873d",
+
+        "#f0bd83",
+
+        "#f5d6ad",
+
+        "#c98b58",
+
+        "#e9a86d"
+
       ];
 
+
       for (let i = 0; i < 35; i++) {
+
 
         const confetti =
           document.createElement("div");
 
-        confetti.className = "confetti";
+
+        confetti.className =
+          "confetti";
+
 
         confetti.style.left =
           Math.random() * 100 + "vw";
 
+
         confetti.style.background =
           colors[
-            Math.floor(Math.random() * colors.length)
+            Math.floor(
+              Math.random() * colors.length
+            )
           ];
+
 
         confetti.style.animationDelay =
           Math.random() * 0.8 + "s";
 
+
         confetti.style.transform =
           `rotate(${Math.random() * 360}deg)`;
 
+
         document.body.appendChild(confetti);
+
 
         setTimeout(() => {
 
@@ -563,15 +1030,19 @@
 
     document
       .getElementById("nameSelect")
-      .addEventListener("keydown", function(event) {
+      .addEventListener(
+        "keydown",
+        function(event) {
 
-        if (event.key === "Enter") {
+          if (event.key === "Enter") {
 
-          showMessage();
+            showMessage();
+
+          }
 
         }
+      );
 
-      });
 
   </script>
 
